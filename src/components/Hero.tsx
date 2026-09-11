@@ -1,7 +1,7 @@
 import React from 'react';
 import { MapPin, Mail, Linkedin, ArrowDown, ChevronRight, GraduationCap, Code } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
-import { ProfileAvatar } from './ProfileAvatar';
+import { DeveloperProfileCard } from './DeveloperProfileCard';
 
 export const Hero: React.FC = () => {
   const scrollTo = (id: string) => {
@@ -123,9 +123,9 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Profile Photo / Placeholder */}
+          {/* Right Column: Interactive Developer & Student Terminal Card */}
           <div className="lg:col-span-5 flex justify-center w-full">
-            <ProfileAvatar />
+            <DeveloperProfileCard />
           </div>
         </div>
 

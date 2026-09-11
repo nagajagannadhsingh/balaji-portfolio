@@ -62,14 +62,6 @@ export const PERSONAL_INFO: PersonalInfo = {
   phoneRaw: '+919392102234',
   linkedInUrl: 'https://www.linkedin.com/in/naga-balaji-singh-b98026375/',
 
-  /**
-   * 📸 PROFILE PHOTO CONFIGURATION
-   * - Points directly to your uploaded photo: '/balaji linkedin.png' (or '/profile.png')
-   * - You can drop 'balaji linkedin.png' into the /public folder via File Explorer,
-   *   or click the avatar card in the live preview to select your exact photo directly.
-   */
-  profilePhotoUrl: '/balaji linkedin.png',
-
   supportingText:
     'Passionate about programming, problem solving, and building a strong foundation in computer science. Currently developing my skills in C, Java, Data Structures and Algorithms, HTML, and CSS.',
 
