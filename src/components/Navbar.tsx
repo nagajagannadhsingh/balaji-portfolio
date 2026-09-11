@@ -69,15 +69,30 @@ export const Navbar: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          {/* Logo / Name */}
+          {/* Logo / Name with Profile Photo */}
           <a
             id="brand-logo-link"
             href="#home"
             onClick={(e) => handleNavClick(e, '#home')}
             className="group flex items-center gap-3 focus:outline-none shrink-0"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 via-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-sm tracking-wider shadow-sm group-hover:shadow-md transition-shadow">
-              NB
+            <div className="w-10 h-10 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm shrink-0 bg-slate-900 flex items-center justify-center">
+              <img
+                id="navbar-profile-photo"
+                src="/assets/balaji%20linkedin.png"
+                alt={personalInfo.name}
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  target.style.display = 'none';
+                  const fallback = target.nextElementSibling as HTMLElement;
+                  if (fallback) fallback.style.display = 'flex';
+                }}
+                className="w-full h-full object-cover object-top"
+                referrerPolicy="no-referrer"
+              />
+              <div className="hidden w-full h-full bg-gradient-to-tr from-sky-600 via-blue-600 to-indigo-600 items-center justify-center text-white font-bold text-xs tracking-wider">
+                NB
+              </div>
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-base sm:text-lg text-slate-900 dark:text-white tracking-tight leading-snug group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
@@ -175,6 +190,36 @@ export const Navbar: React.FC = () => {
           id="mobile-drawer-menu"
           className="lg:hidden bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 px-4 pt-3 pb-6 shadow-xl transition-all"
         >
+          {/* Mobile Profile Photo & Identity Header */}
+          <div className="flex items-center gap-3 p-3 mb-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200/70 dark:border-slate-800">
+            <div className="w-11 h-11 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xs shrink-0 bg-slate-900 flex items-center justify-center">
+              <img
+                id="mobile-drawer-profile-photo"
+                src="/assets/balaji%20linkedin.png"
+                alt={personalInfo.name}
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  target.style.display = 'none';
+                  const fallback = target.nextElementSibling as HTMLElement;
+                  if (fallback) fallback.style.display = 'flex';
+                }}
+                className="w-full h-full object-cover object-top"
+                referrerPolicy="no-referrer"
+              />
+              <div className="hidden w-full h-full bg-gradient-to-tr from-sky-600 to-indigo-600 items-center justify-center text-white font-bold text-xs">
+                NB
+              </div>
+            </div>
+            <div className="min-w-0 flex-1">
+              <div className="font-bold text-sm text-slate-900 dark:text-white truncate">
+                {personalInfo.name}
+              </div>
+              <div className="text-xs text-sky-600 dark:text-sky-400 truncate">
+                {personalInfo.headline}
+              </div>
+            </div>
+          </div>
+
           <div className="flex flex-col space-y-1">
             {navItems.map((item) => {
               const isActive = activeSection === item.href.substring(1);

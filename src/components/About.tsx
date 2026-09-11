@@ -30,6 +30,30 @@ export const About: React.FC = () => {
             <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-sky-500/10 to-transparent rounded-bl-3xl pointer-events-none" />
 
+              {/* Profile Photo & Identity Header */}
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 pb-6 mb-6 border-b border-slate-100 dark:border-slate-800/80">
+                <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-sky-500/30 shadow-md shrink-0 bg-slate-900">
+                  <img
+                    id="about-profile-photo"
+                    src="/assets/balaji%20linkedin.png"
+                    alt={personalInfo.name}
+                    className="w-full h-full object-cover object-top"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+                <div className="text-center sm:text-left">
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+                    {personalInfo.name}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-sky-600 dark:text-sky-400 font-semibold mt-0.5">
+                    {personalInfo.headline}
+                  </p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                    {personalInfo.college} • {personalInfo.location}
+                  </p>
+                </div>
+              </div>
+
               <div className="space-y-4 text-slate-700 dark:text-slate-300 leading-relaxed text-base sm:text-lg">
                 {personalInfo.aboutText.map((paragraph, index) => (
                   <p key={index} id={`about-paragraph-${index + 1}`}>

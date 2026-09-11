@@ -17,27 +17,47 @@ export const Footer: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-200/80 dark:border-slate-800">
-          {/* Info */}
-          <div className="text-center md:text-left space-y-1.5">
-            <h3
-              id="footer-name"
-              className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white"
-            >
-              {personalInfo.name}
-            </h3>
-            <p
-              id="footer-headline"
-              className="text-xs sm:text-sm font-medium text-sky-600 dark:text-sky-400"
-            >
-              B.Tech CSE (AI) | Aspiring Software Developer
-            </p>
-            <p
-              id="footer-location"
-              className="flex items-center justify-center md:justify-start gap-1 text-xs text-slate-500 dark:text-slate-400"
-            >
-              <MapPin className="w-3.5 h-3.5 text-rose-500" />
-              <span>{personalInfo.location}</span>
-            </p>
+          {/* Info with Profile Photo */}
+          <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+            <div className="w-12 h-12 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xs shrink-0 bg-slate-900 flex items-center justify-center">
+              <img
+                id="footer-profile-photo"
+                src="/assets/balaji%20linkedin.png"
+                alt={personalInfo.name}
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  target.style.display = 'none';
+                  const fallback = target.nextElementSibling as HTMLElement;
+                  if (fallback) fallback.style.display = 'flex';
+                }}
+                className="w-full h-full object-cover object-top"
+                referrerPolicy="no-referrer"
+              />
+              <div className="hidden w-full h-full bg-gradient-to-tr from-sky-600 to-indigo-600 items-center justify-center text-white font-bold text-xs">
+                NB
+              </div>
+            </div>
+            <div className="space-y-1">
+              <h3
+                id="footer-name"
+                className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white"
+              >
+                {personalInfo.name}
+              </h3>
+              <p
+                id="footer-headline"
+                className="text-xs sm:text-sm font-medium text-sky-600 dark:text-sky-400"
+              >
+                B.Tech CSE (AI) | Aspiring Software Developer
+              </p>
+              <p
+                id="footer-location"
+                className="flex items-center justify-center sm:justify-start gap-1 text-xs text-slate-500 dark:text-slate-400"
+              >
+                <MapPin className="w-3.5 h-3.5 text-rose-500" />
+                <span>{personalInfo.location}</span>
+              </p>
+            </div>
           </div>
 
           {/* Social Icons & Back to top button */}

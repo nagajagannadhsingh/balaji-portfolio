@@ -61,6 +61,7 @@ export const PERSONAL_INFO: PersonalInfo = {
   phone: '+91 9392102234',
   phoneRaw: '+919392102234',
   linkedInUrl: 'https://www.linkedin.com/in/naga-balaji-singh-b98026375/',
+  profilePhotoUrl: '/assets/balaji%20linkedin.png',
 
   supportingText:
     'Passionate about programming, problem solving, and building a strong foundation in computer science. Currently developing my skills in C, Java, Data Structures and Algorithms, HTML, and CSS.',
